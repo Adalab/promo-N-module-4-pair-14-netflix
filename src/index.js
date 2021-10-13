@@ -1,6 +1,6 @@
 const express = require('express');
 const cors = require('cors');
-
+const path = require('path');
 // create and config server
 const server = express();
 server.use(cors());
@@ -32,3 +32,5 @@ server.get('/movies', (req, res) => {
 	};
 	res.json(response);
 });
+const staticServerPathWeb = './src/public-react/'; // En esta carpeta ponemos los ficheros estáticos
+server.use(express.static(staticServerPathWeb));
